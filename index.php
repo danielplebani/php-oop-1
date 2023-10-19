@@ -15,6 +15,9 @@ Facciamo attenzione all’organizzazione del codice, suddividendolo in appositi 
 -->
 <?php
 include "./movie.php";
+include "./db.php";
+
+array_push($movieList, $after, $matrix, $avatar)
 ?>
 
 <!DOCTYPE html>
@@ -30,23 +33,26 @@ include "./movie.php";
 </head>
 
 <body class="bg-info">
-    <div class="container text-center py-5">
+    <div class="container text-center py-3">
         <h1 class="text-white">LIST OF MOVIES</h1>
 
-        
-        <div class="card" style="width: 18rem;">
-            <img src="<?= $matrix->img ?>" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title"><?= $matrix->name ?></h5>
-                <p class="card-text"><?= $matrix->trama ?></p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">GENERE: <?= $matrix->genre ?></li>
-                <li class="list-group-item">DURATA: <?= $matrix->duration ?></li>
-            </ul>
+        <div class="mt-5 d-flex justify-content-center gap-3">
+            <?php foreach ($movieList as $movie) : ?>
+                <div class="card" style="width: 18rem;">
+                    <img src="<?= $movie->img ?>" class="card-img-top" style="height: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $movie->name ?></h5>
+                        <p class="card-text"><?= $movie->trama ?></p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">GENERE: <?= $movie->genre ?></li>
+                        <li class="list-group-item">DURATA: <?= $movie->duration ?> minuti</li>
+                    </ul>
+                </div>
+            <?php endforeach; ?>
         </div>
-        
-        </div>
+
+    </div>
 
 </body>
 
