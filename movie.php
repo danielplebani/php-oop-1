@@ -1,12 +1,18 @@
 <?php
+
+include   "./Models/after.php";
+include   "./Models/avatar.php";
+include   "./Models/matrix.php";
+
 class Movie
 {
     //variabili d'istanza
     public $name;
     public $img;
     public $duration;
-    public $genre;
     public $trama;
+    public $genres = [];
+    public $genresList;
 
 
     //costruttore
@@ -16,19 +22,16 @@ class Movie
     }
 
     // metodi
-    public function addDuration()
+    public function getDuration()
     {
         return $this->duration;
     }
 
-    public function addGenre()
+    public function addGenre($newGenre)
     {
-        return $this->genre;
+        array_push($this->genres, $newGenre);
+        $this->genresList = implode("," , $this->genres);
     }
 }
-
-include   "./Models/after.php";
-include   "./Models/avatar.php";
-include   "./Models/matrix.php";
 
 ?>

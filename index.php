@@ -36,16 +36,16 @@ array_push($movieList, $after, $matrix, $avatar)
     <div class="container text-center py-3">
         <h1 class="text-white">LIST OF MOVIES</h1>
 
-        <div class="mt-5 d-flex justify-content-center gap-3">
+        <div class="mt-5 d-flex flex-wrap justify-content-center gap-3">
             <?php foreach ($movieList as $movie) : ?>
                 <div class="card" style="width: 18rem;">
-                    <img src="<?= $movie->img ?>" class="card-img-top" style="height: 12rem;">
+                    <img src="<?= $movie->img ?>" class="card-img-top" style="height: 11rem;">
                     <div class="card-body">
                         <h5 class="card-title"><?= $movie->name ?></h5>
                         <p class="card-text"><?= $movie->trama ?></p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">GENERE: <?= $movie->genre ?></li>
+                        <li class="list-group-item"> GENERE: <?= $movie->genresList?></li>
                         <li class="list-group-item">DURATA: <?= $movie->duration ?> minuti</li>
                     </ul>
                 </div>
